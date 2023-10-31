@@ -12,3 +12,4 @@ export * from './activation-reason.model';
 export * from './expedient-type.model';
 export * from './main-intervener.model';
 export * from './product-type.model';
+export * from './client-status.model';
