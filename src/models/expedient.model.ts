@@ -177,7 +177,7 @@ export class Expedient extends Entity {
   tags?: string[];
 
   @property({
-    type: 'string',
+    type: 'date',
   })
   targetDate?: string;
 
@@ -187,7 +187,7 @@ export class Expedient extends Entity {
   territorialAddress?: string;
 
   @property({
-    type: 'string',
+    type: 'date',
     required: true,
   })
   clientStatusId: string;
