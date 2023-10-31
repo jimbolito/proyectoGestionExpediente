@@ -5,3 +5,4 @@ export * from './entity-original.model';
 export * from './management-status.model';
 export * from './global-status-management.model';
 export * from './global-coherence.model';
+export * from './departure-reason.model';
