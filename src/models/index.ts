@@ -10,3 +10,4 @@ export * from './customer-return-reason.model';
 export * from './paralyzed-reason.model';
 export * from './activation-reason.model';
 export * from './expedient-type.model';
+export * from './main-intervener.model';
