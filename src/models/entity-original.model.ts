@@ -1,30 +1,34 @@
 import {Entity, model, property} from '@loopback/repository';
 
 @model()
-export class Group extends Entity {
-  @property({
-    type: 'string',
-  })
-  shortDescription?: string;
-
+export class EntityOriginal extends Entity {
   @property({
     type: 'string',
     id: true,
     generated: true,
   })
-  idGroup?: string;
+  id?: string;
 
   @property({
     type: 'string',
   })
-  longDescription?: string;
+  name?: string;
 
+  @property({
+    type: 'string',
+  })
+  code?: string;
 
   @property({
     type: 'string',
     required: true,
   })
-  code: string;
+  shortDescription: string;
+
+  @property({
+    type: 'string',
+  })
+  longDescription?: string;
 
   @property({
     type: 'date',
@@ -43,13 +47,13 @@ export class Group extends Entity {
   modifyAt?: string;
 
 
-  constructor(data?: Partial<Group>) {
+  constructor(data?: Partial<EntityOriginal>) {
     super(data);
   }
 }
 
-export interface GroupRelations {
+export interface EntityOriginalRelations {
   // describe navigational properties here
 }
 
-export type GroupWithRelations = Group & GroupRelations;
+export type EntityOriginalWithRelations = EntityOriginal & EntityOriginalRelations;
