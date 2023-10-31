@@ -6,3 +6,4 @@ export * from './management-status.model';
 export * from './global-status-management.model';
 export * from './global-coherence.model';
 export * from './departure-reason.model';
+export * from './customer-return-reason.model';
