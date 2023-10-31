@@ -11,3 +11,4 @@ export * from './paralyzed-reason.model';
 export * from './activation-reason.model';
 export * from './expedient-type.model';
 export * from './main-intervener.model';
+export * from './product-type.model';
