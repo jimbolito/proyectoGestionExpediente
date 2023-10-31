@@ -1,0 +1,60 @@
+import {Entity, model, property} from '@loopback/repository';
+
+@model()
+export class FieldIdentifier extends Entity {
+  @property({
+    type: 'string',
+    id: true,
+    generated: true,
+  })
+  idFieldIdentifier?: string;
+
+  @property({
+    type: 'string',
+    required: true,
+  })
+  name: string;
+
+  @property({
+    type: 'string',
+  })
+  code?: string;
+
+  @property({
+    type: 'string',
+    required: true,
+  })
+  shortDescription: string;
+
+  @property({
+    type: 'string',
+  })
+  longDescription?: string;
+
+  @property({
+    type: 'date',
+    required: true,
+  })
+  createAt: string;
+
+  @property({
+    type: 'date',
+  })
+  deleteAt?: string;
+
+  @property({
+    type: 'date',
+  })
+  modifyAt?: string;
+
+
+  constructor(data?: Partial<FieldIdentifier>) {
+    super(data);
+  }
+}
+
+export interface FieldIdentifierRelations {
+  // describe navigational properties here
+}
+
+export type FieldIdentifierWithRelations = FieldIdentifier & FieldIdentifierRelations;
