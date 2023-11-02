@@ -7,7 +7,7 @@ export class ExpedientType extends Entity {
     id: true,
     generated: true,
   })
-  id?: string;
+  typeID?: string;
 
   @property({
     type: 'string',

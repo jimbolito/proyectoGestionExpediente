@@ -14,3 +14,4 @@ export * from './main-intervener.model';
 export * from './product-type.model';
 export * from './client-status.model';
 export * from './entity-yield.model';
+export * from './enrollment.model';

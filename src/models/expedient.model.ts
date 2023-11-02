@@ -1,4 +1,6 @@
-import {Entity, model, property} from '@loopback/repository';
+import {Entity, model, property, hasMany} from '@loopback/repository';
+import {ExpedientType} from './expedient-type.model';
+import {Enrollment} from './enrollment.model';
 
 @model()
 export class Expedient extends Entity {
@@ -7,7 +9,7 @@ export class Expedient extends Entity {
     id: true,
     generated: true,
   })
-  id?: string;
+  expedientID?: string;
 
   @property({
     type: 'string',
@@ -36,7 +38,7 @@ export class Expedient extends Entity {
   @property({
     type: 'number',
   })
-  group?: number;
+  group?: number;//fgggg
 
   @property({
     type: 'string',
@@ -220,11 +222,14 @@ export class Expedient extends Entity {
   })
   expostDate: string;
 
+  @hasMany(() => ExpedientType, {through: {model: () => Enrollment, keyFrom: 'expedientID', keyTo: 'typeID'}})
+  enrollmentID: ExpedientType[];
 
   constructor(data?: Partial<Expedient>) {
     super(data);
   }
 }
+
 
 export interface ExpedientRelations {
   // describe navigational properties here
