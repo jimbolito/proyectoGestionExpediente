@@ -2,10 +2,6 @@ import {Entity, model, property} from '@loopback/repository';
 
 @model()
 export class Group extends Entity {
-  @property({
-    type: 'string',
-  })
-  shortDescription?: string;
 
   @property({
     type: 'string',
@@ -13,6 +9,13 @@ export class Group extends Entity {
     generated: true,
   })
   groupId?: string;
+
+
+  @property({
+    type: 'string',
+  })
+  shortDescription?: string;
+
 
   @property({
     type: 'string',
