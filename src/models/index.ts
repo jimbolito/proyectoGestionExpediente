@@ -16,3 +16,4 @@ export * from './client-status.model';
 export * from './entity-yield.model';
 export * from './enrollment.model';
 export * from './expedient-manin-intervener.model';
+export * from './expedient-paralyzed-status.model';

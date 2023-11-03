@@ -7,7 +7,7 @@ export class ParalyzedReason extends Entity {
     id: true,
     generated: true,
   })
-  id?: string;
+  paralyzedReasonId?: string;
 
   @property({
     type: 'string',
