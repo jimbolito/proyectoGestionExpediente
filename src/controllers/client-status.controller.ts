@@ -7,24 +7,24 @@ import {
   Where,
 } from '@loopback/repository';
 import {
-  del,
+  post,
+  param,
   get,
   getModelSchemaRef,
-  param,
   patch,
-  post,
   put,
+  del,
   requestBody,
   response,
 } from '@loopback/rest';
 import {ClientStatus} from '../models';
 import {ClientStatusRepository} from '../repositories';
 
-export class ClientStatusControllerController {
+export class ClientStatusController {
   constructor(
     @repository(ClientStatusRepository)
-    public clientStatusRepository: ClientStatusRepository,
-  ) { }
+    public clientStatusRepository : ClientStatusRepository,
+  ) {}
 
   @post('/client-statuses')
   @response(200, {
@@ -42,7 +42,7 @@ export class ClientStatusControllerController {
         },
       },
     })
-    clientStatus: Omit<ClientStatus, 'id'>,
+    clientStatus: Omit<ClientStatus, 'clientStatusId'>,
   ): Promise<ClientStatus> {
     return this.clientStatusRepository.create(clientStatus);
   }

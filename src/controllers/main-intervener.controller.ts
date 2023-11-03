@@ -20,7 +20,7 @@ import {
 import {MainIntervener} from '../models';
 import {MainIntervenerRepository} from '../repositories';
 
-export class MainIntervenerControllerController {
+export class MainIntervenerController {
   constructor(
     @repository(MainIntervenerRepository)
     public mainIntervenerRepository : MainIntervenerRepository,
