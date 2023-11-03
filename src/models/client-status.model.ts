@@ -7,7 +7,7 @@ export class ClientStatus extends Entity {
     id: true,
     generated: true,
   })
-  id?: string;
+  clientStatusId?: string;
 
   @property({
     type: 'string',

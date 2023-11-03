@@ -1,6 +1,7 @@
-import {Entity, model, property, hasMany} from '@loopback/repository';
+import {Entity, model, property, hasMany, belongsTo} from '@loopback/repository';
 import {ExpedientType} from './expedient-type.model';
 import {Enrollment} from './enrollment.model';
+import {ClientStatus} from './client-status.model';
 
 @model()
 export class Expedient extends Entity {
@@ -187,13 +188,6 @@ export class Expedient extends Entity {
     type: 'string',
   })
   territorialAddress?: string;
-
-  @property({
-    type: 'date',
-    required: true,
-  })
-  clientStatusId: string;
-
   @property({
     type: 'date',
   })
@@ -224,6 +218,9 @@ export class Expedient extends Entity {
 
   @hasMany(() => ExpedientType, {through: {model: () => Enrollment, keyFrom: 'expedientID', keyTo: 'typeID'}})
   enrollmentID: ExpedientType[];
+
+  @belongsTo(() => ClientStatus)
+  clientStatusId: string;
 
   constructor(data?: Partial<Expedient>) {
     super(data);

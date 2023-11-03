@@ -5,7 +5,7 @@ import {ClientStatus, ClientStatusRelations} from '../models';
 
 export class ClientStatusRepository extends DefaultCrudRepository<
   ClientStatus,
-  typeof ClientStatus.prototype.id,
+  typeof ClientStatus.prototype.clientStatusId,
   ClientStatusRelations
 > {
   constructor(
