@@ -1,9 +1,10 @@
-import {Entity, model, property, hasMany, belongsTo} from '@loopback/repository';
+import {Entity, model, property, hasMany, belongsTo, hasOne} from '@loopback/repository';
 import {ExpedientType} from './expedient-type.model';
 import {Enrollment} from './enrollment.model';
 import {ClientStatus} from './client-status.model';
 import {MainIntervener} from './main-intervener.model';
 import {ExpedientManinIntervener} from './expedient-manin-intervener.model';
+import {ManagementStatus} from './management-status.model';
 
 @model()
 export class Expedient extends Entity {
@@ -226,6 +227,9 @@ export class Expedient extends Entity {
 
   @hasMany(() => MainIntervener, {through: {model: () => ExpedientManinIntervener, keyFrom: 'expedientID'}})
   mainInterveners: MainIntervener[];
+
+  @hasOne(() => ManagementStatus, {keyTo: 'expedientID'})
+  managementStatusId: ManagementStatus;
 
   constructor(data?: Partial<Expedient>) {
     super(data);

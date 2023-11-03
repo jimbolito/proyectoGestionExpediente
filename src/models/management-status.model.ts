@@ -7,7 +7,7 @@ export class ManagementStatus extends Entity {
     id: true,
     generated: true,
   })
-  id?: string;
+  managementStatusId?: string;
 
   @property({
     type: 'string',
@@ -45,6 +45,10 @@ export class ManagementStatus extends Entity {
   })
   modifyAt?: string;
 
+  @property({
+    type: 'string',
+  })
+  expedientID?: string;
 
   constructor(data?: Partial<ManagementStatus>) {
     super(data);

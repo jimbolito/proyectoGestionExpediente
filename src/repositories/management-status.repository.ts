@@ -5,7 +5,7 @@ import {ManagementStatus, ManagementStatusRelations} from '../models';
 
 export class ManagementStatusRepository extends DefaultCrudRepository<
   ManagementStatus,
-  typeof ManagementStatus.prototype.id,
+  typeof ManagementStatus.prototype.managementStatusId,
   ManagementStatusRelations
 > {
   constructor(
