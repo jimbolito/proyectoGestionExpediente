@@ -7,7 +7,7 @@ export class MainIntervener extends Entity {
     id: true,
     generated: true,
   })
-  id?: string;
+  mainIntervenerId?: string;
 
   @property({
     type: 'string',

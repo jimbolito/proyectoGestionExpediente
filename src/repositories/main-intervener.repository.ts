@@ -5,7 +5,7 @@ import {MainIntervener, MainIntervenerRelations} from '../models';
 
 export class MainIntervenerRepository extends DefaultCrudRepository<
   MainIntervener,
-  typeof MainIntervener.prototype.id,
+  typeof MainIntervener.prototype.mainIntervenerId,
   MainIntervenerRelations
 > {
   constructor(

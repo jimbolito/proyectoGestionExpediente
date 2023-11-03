@@ -9,6 +9,15 @@ export class ExpedientManinIntervener extends Entity {
   })
   expedientMainIntervenerId?: string;
 
+  @property({
+    type: 'string',
+  })
+  expedientID?: string;
+
+  @property({
+    type: 'string',
+  })
+  mainIntervenerId?: string;
 
   constructor(data?: Partial<ExpedientManinIntervener>) {
     super(data);
