@@ -1,13 +1,14 @@
-import {Entity, model, property, hasMany, belongsTo, hasOne} from '@loopback/repository';
-import {ExpedientType} from './expedient-type.model';
-import {Enrollment} from './enrollment.model';
+import {Entity, belongsTo, hasMany, hasOne, model, property} from '@loopback/repository';
 import {ClientStatus} from './client-status.model';
-import {MainIntervener} from './main-intervener.model';
+import {Enrollment} from './enrollment.model';
+import {ExpedientFieldIdentifier} from './expedient-field-identifier.model';
 import {ExpedientManinIntervener} from './expedient-manin-intervener.model';
+import {ExpedientType} from './expedient-type.model';
+import {FieldIdentifier} from './field-identifier.model';
+import {MainIntervener} from './main-intervener.model';
 import {ManagementStatus} from './management-status.model';
 import {ParalyzedReason} from './paralyzed-reason.model';
-import {FieldIdentifier} from './field-identifier.model';
-import {ExpedientFieldIdentifier} from './expedient-field-identifier.model';
+import {Group} from './group.model';
 
 @model()
 export class Expedient extends Entity {
@@ -239,6 +240,9 @@ export class Expedient extends Entity {
 
   @hasMany(() => FieldIdentifier, {through: {model: () => ExpedientFieldIdentifier, keyFrom: 'expedientID', keyTo: 'fielId'}})
   fieldIdentifiers: FieldIdentifier[];
+
+  @hasMany(() => Group, {keyTo: 'expedientID'})
+  groups: Group[];
 
   constructor(data?: Partial<Expedient>) {
     super(data);

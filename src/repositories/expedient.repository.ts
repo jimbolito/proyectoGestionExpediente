@@ -1,7 +1,7 @@
 import {inject, Getter} from '@loopback/core';
 import {DefaultCrudRepository, repository, HasManyThroughRepositoryFactory, BelongsToAccessor, HasOneRepositoryFactory, HasManyRepositoryFactory} from '@loopback/repository';
 import {ExpedientDataSourceDataSource} from '../datasources';
-import {Expedient, ExpedientRelations, ExpedientType, Enrollment, ClientStatus, MainIntervener, ExpedientManinIntervener, ManagementStatus, ParalyzedReason, FieldIdentifier, ExpedientFieldIdentifier} from '../models';
+import {Expedient, ExpedientRelations, ExpedientType, Enrollment, ClientStatus, MainIntervener, ExpedientManinIntervener, ManagementStatus, ParalyzedReason, FieldIdentifier, ExpedientFieldIdentifier, Group} from '../models';
 import {EnrollmentRepository} from './enrollment.repository';
 import {ExpedientTypeRepository} from './expedient-type.repository';
 import {ClientStatusRepository} from './client-status.repository';
@@ -11,6 +11,7 @@ import {ManagementStatusRepository} from './management-status.repository';
 import {ParalyzedReasonRepository} from './paralyzed-reason.repository';
 import {ExpedientFieldIdentifierRepository} from './expedient-field-identifier.repository';
 import {FieldIdentifierRepository} from './field-identifier.repository';
+import {GroupRepository} from './group.repository';
 
 export class ExpedientRepository extends DefaultCrudRepository<
   Expedient,
@@ -39,10 +40,14 @@ export class ExpedientRepository extends DefaultCrudRepository<
           typeof Expedient.prototype.expedientID
         >;
 
+  public readonly groups: HasManyRepositoryFactory<Group, typeof Expedient.prototype.expedientID>;
+
   constructor(
-    @inject('datasources.expedientDataSource') dataSource: ExpedientDataSourceDataSource, @repository.getter('EnrollmentRepository') protected enrollmentRepositoryGetter: Getter<EnrollmentRepository>, @repository.getter('ExpedientTypeRepository') protected expedientTypeRepositoryGetter: Getter<ExpedientTypeRepository>, @repository.getter('ClientStatusRepository') protected clientStatusRepositoryGetter: Getter<ClientStatusRepository>, @repository.getter('ExpedientManinIntervenerRepository') protected expedientManinIntervenerRepositoryGetter: Getter<ExpedientManinIntervenerRepository>, @repository.getter('MainIntervenerRepository') protected mainIntervenerRepositoryGetter: Getter<MainIntervenerRepository>, @repository.getter('ManagementStatusRepository') protected managementStatusRepositoryGetter: Getter<ManagementStatusRepository>, @repository.getter('ParalyzedReasonRepository') protected paralyzedReasonRepositoryGetter: Getter<ParalyzedReasonRepository>, @repository.getter('ExpedientFieldIdentifierRepository') protected expedientFieldIdentifierRepositoryGetter: Getter<ExpedientFieldIdentifierRepository>, @repository.getter('FieldIdentifierRepository') protected fieldIdentifierRepositoryGetter: Getter<FieldIdentifierRepository>,
+    @inject('datasources.expedientDataSource') dataSource: ExpedientDataSourceDataSource, @repository.getter('EnrollmentRepository') protected enrollmentRepositoryGetter: Getter<EnrollmentRepository>, @repository.getter('ExpedientTypeRepository') protected expedientTypeRepositoryGetter: Getter<ExpedientTypeRepository>, @repository.getter('ClientStatusRepository') protected clientStatusRepositoryGetter: Getter<ClientStatusRepository>, @repository.getter('ExpedientManinIntervenerRepository') protected expedientManinIntervenerRepositoryGetter: Getter<ExpedientManinIntervenerRepository>, @repository.getter('MainIntervenerRepository') protected mainIntervenerRepositoryGetter: Getter<MainIntervenerRepository>, @repository.getter('ManagementStatusRepository') protected managementStatusRepositoryGetter: Getter<ManagementStatusRepository>, @repository.getter('ParalyzedReasonRepository') protected paralyzedReasonRepositoryGetter: Getter<ParalyzedReasonRepository>, @repository.getter('ExpedientFieldIdentifierRepository') protected expedientFieldIdentifierRepositoryGetter: Getter<ExpedientFieldIdentifierRepository>, @repository.getter('FieldIdentifierRepository') protected fieldIdentifierRepositoryGetter: Getter<FieldIdentifierRepository>, @repository.getter('GroupRepository') protected groupRepositoryGetter: Getter<GroupRepository>,
   ) {
     super(Expedient, dataSource);
+    this.groups = this.createHasManyRepositoryFactoryFor('groups', groupRepositoryGetter,);
+    this.registerInclusionResolver('groups', this.groups.inclusionResolver);
     this.fieldIdentifiers = this.createHasManyThroughRepositoryFactoryFor('fieldIdentifiers', fieldIdentifierRepositoryGetter, expedientFieldIdentifierRepositoryGetter,);
     this.registerInclusionResolver('fieldIdentifiers', this.fieldIdentifiers.inclusionResolver);
     this.paralyzedReasonId = this.createHasManyRepositoryFactoryFor('paralyzedReasonId', paralyzedReasonRepositoryGetter,);

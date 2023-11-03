@@ -5,7 +5,7 @@ import {Group, GroupRelations} from '../models';
 
 export class GroupRepository extends DefaultCrudRepository<
   Group,
-  typeof Group.prototype.idGroup,
+  typeof Group.prototype.groupId,
   GroupRelations
 > {
   constructor(

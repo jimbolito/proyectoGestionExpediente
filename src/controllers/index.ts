@@ -10,3 +10,4 @@ export * from './main-intervener.controller';
 export * from './ping.controller';
 export * from './expedient-field-identifier.controller';
 export * from './field-identifier.controller';
+export * from './expedient-group.controller';

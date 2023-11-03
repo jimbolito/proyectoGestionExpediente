@@ -12,7 +12,7 @@ export class Group extends Entity {
     id: true,
     generated: true,
   })
-  idGroup?: string;
+  groupId?: string;
 
   @property({
     type: 'string',
@@ -42,6 +42,10 @@ export class Group extends Entity {
   })
   modifyAt?: string;
 
+  @property({
+    type: 'string',
+  })
+  expedientID?: string;
 
   constructor(data?: Partial<Group>) {
     super(data);
