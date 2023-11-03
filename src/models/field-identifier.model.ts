@@ -7,7 +7,7 @@ export class FieldIdentifier extends Entity {
     id: true,
     generated: true,
   })
-  idFieldIdentifier?: string;
+  fielId?: string;
 
   @property({
     type: 'string',

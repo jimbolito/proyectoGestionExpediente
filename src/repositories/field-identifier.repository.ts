@@ -5,7 +5,7 @@ import {FieldIdentifier, FieldIdentifierRelations} from '../models';
 
 export class FieldIdentifierRepository extends DefaultCrudRepository<
   FieldIdentifier,
-  typeof FieldIdentifier.prototype.idFieldIdentifier,
+  typeof FieldIdentifier.prototype.fielId,
   FieldIdentifierRelations
 > {
   constructor(
