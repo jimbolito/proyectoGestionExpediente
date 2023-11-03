@@ -6,6 +6,8 @@ import {MainIntervener} from './main-intervener.model';
 import {ExpedientManinIntervener} from './expedient-manin-intervener.model';
 import {ManagementStatus} from './management-status.model';
 import {ParalyzedReason} from './paralyzed-reason.model';
+import {FieldIdentifier} from './field-identifier.model';
+import {ExpedientFieldIdentifier} from './expedient-field-identifier.model';
 
 @model()
 export class Expedient extends Entity {
@@ -234,6 +236,9 @@ export class Expedient extends Entity {
 
   @hasMany(() => ParalyzedReason, {keyTo: 'expedientID'})
   paralyzedReasonId: ParalyzedReason[];
+
+  @hasMany(() => FieldIdentifier, {through: {model: () => ExpedientFieldIdentifier, keyFrom: 'expedientID', keyTo: 'fielId'}})
+  fieldIdentifiers: FieldIdentifier[];
 
   constructor(data?: Partial<Expedient>) {
     super(data);

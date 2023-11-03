@@ -9,6 +9,15 @@ export class ExpedientFieldIdentifier extends Entity {
   })
   expedientFieldId?: string;
 
+  @property({
+    type: 'string',
+  })
+  expedientID?: string;
+
+  @property({
+    type: 'string',
+  })
+  fielId?: string;
 
   constructor(data?: Partial<ExpedientFieldIdentifier>) {
     super(data);

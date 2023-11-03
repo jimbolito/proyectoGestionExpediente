@@ -8,4 +8,4 @@ export * from './expedient-type.controller';
 export * from './expedient.controller';
 export * from './main-intervener.controller';
 export * from './ping.controller';
-
+export * from './expedient-field-identifier.controller';
