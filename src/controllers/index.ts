@@ -7,3 +7,4 @@ export * from './client-status-controller.controller';
 export * from './expedient-main-intervener.controller';
 export * from './main-intervener-controller.controller';
 export * from './expedient-management-status.controller';
+export * from './expedient-paralyzed-reason.controller';

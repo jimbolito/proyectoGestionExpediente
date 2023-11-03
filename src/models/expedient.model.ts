@@ -5,6 +5,7 @@ import {ClientStatus} from './client-status.model';
 import {MainIntervener} from './main-intervener.model';
 import {ExpedientManinIntervener} from './expedient-manin-intervener.model';
 import {ManagementStatus} from './management-status.model';
+import {ParalyzedReason} from './paralyzed-reason.model';
 
 @model()
 export class Expedient extends Entity {
@@ -230,6 +231,9 @@ export class Expedient extends Entity {
 
   @hasOne(() => ManagementStatus, {keyTo: 'expedientID'})
   managementStatusId: ManagementStatus;
+
+  @hasMany(() => ParalyzedReason, {keyTo: 'expedientID'})
+  paralyzedReasonId: ParalyzedReason[];
 
   constructor(data?: Partial<Expedient>) {
     super(data);

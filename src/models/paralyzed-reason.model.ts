@@ -45,6 +45,10 @@ export class ParalyzedReason extends Entity {
   })
   modifyAt?: string;
 
+  @property({
+    type: 'string',
+  })
+  expedientID?: string;
 
   constructor(data?: Partial<ParalyzedReason>) {
     super(data);
