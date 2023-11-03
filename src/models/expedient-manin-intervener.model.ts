@@ -7,7 +7,7 @@ export class ExpedientManinIntervener extends Entity {
     id: true,
     generated: true,
   })
-  id?: string;
+  expedientMainIntervenerId?: string;
 
 
   constructor(data?: Partial<ExpedientManinIntervener>) {

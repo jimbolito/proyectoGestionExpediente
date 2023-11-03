@@ -15,3 +15,4 @@ export * from './management-status.repository';
 export * from './paralyzed-reason.repository';
 export * from './product-type.repository';
 export * from './enrollment.repository';
+export * from './expedient-manin-intervener.repository';
