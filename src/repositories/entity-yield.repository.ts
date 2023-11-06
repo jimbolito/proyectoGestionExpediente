@@ -5,7 +5,7 @@ import {EntityYield, EntityYieldRelations} from '../models';
 
 export class EntityYieldRepository extends DefaultCrudRepository<
   EntityYield,
-  typeof EntityYield.prototype.id,
+  typeof EntityYield.prototype.entityYieldId,
   EntityYieldRelations
 > {
   constructor(

@@ -5,7 +5,7 @@ import {ProductType, ProductTypeRelations} from '../models';
 
 export class ProductTypeRepository extends DefaultCrudRepository<
   ProductType,
-  typeof ProductType.prototype.id,
+  typeof ProductType.prototype.productTypeId,
   ProductTypeRelations
 > {
   constructor(

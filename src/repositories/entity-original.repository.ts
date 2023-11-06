@@ -5,7 +5,7 @@ import {EntityOriginal, EntityOriginalRelations} from '../models';
 
 export class EntityOriginalRepository extends DefaultCrudRepository<
   EntityOriginal,
-  typeof EntityOriginal.prototype.id,
+  typeof EntityOriginal.prototype.entitytOriginalId,
   EntityOriginalRelations
 > {
   constructor(

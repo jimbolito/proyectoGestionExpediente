@@ -45,6 +45,10 @@ export class ManagementStatus extends Entity {
   })
   modifyAt?: string;
 
+  @property({
+    type: 'string',
+  })
+  expedientID?: string;
 
   constructor(data?: Partial<ManagementStatus>) {
     super(data);

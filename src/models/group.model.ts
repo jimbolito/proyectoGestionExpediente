@@ -45,6 +45,10 @@ export class Group extends Entity {
   })
   modifyAt?: string;
 
+  @property({
+    type: 'string',
+  })
+  expedientID?: string;
 
   constructor(data?: Partial<Group>) {
     super(data);

@@ -7,7 +7,7 @@ export class ProductType extends Entity {
     id: true,
     generated: true,
   })
-  id?: string;
+  productTypeId?: string;
 
   @property({
     type: 'string',
@@ -45,6 +45,10 @@ export class ProductType extends Entity {
   })
   modifyAt?: string;
 
+  @property({
+    type: 'string',
+  })
+  expedientID?: string;
 
   constructor(data?: Partial<ProductType>) {
     super(data);

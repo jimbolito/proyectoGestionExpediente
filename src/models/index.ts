@@ -15,3 +15,4 @@ export * from './management-status.model';
 export * from './paralyzed-reason.model';
 export * from './product-type.model';
 
+export * from './departure-reason.model';

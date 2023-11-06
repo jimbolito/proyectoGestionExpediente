@@ -5,7 +5,7 @@ import {GlobalCoherence, GlobalCoherenceRelations} from '../models';
 
 export class GlobalCoherenceRepository extends DefaultCrudRepository<
   GlobalCoherence,
-  typeof GlobalCoherence.prototype.id,
+  typeof GlobalCoherence.prototype.globalCoherenceId,
   GlobalCoherenceRelations
 > {
   constructor(

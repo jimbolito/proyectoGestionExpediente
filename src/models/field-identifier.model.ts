@@ -47,6 +47,10 @@ export class FieldIdentifier extends Entity {
   })
   modifyAt?: string;
 
+  @property({
+    type: 'string',
+  })
+  expedientID?: string;
 
   constructor(data?: Partial<FieldIdentifier>) {
     super(data);

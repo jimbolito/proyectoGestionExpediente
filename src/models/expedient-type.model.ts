@@ -45,6 +45,10 @@ export class ExpedientType extends Entity {
   })
   modify?: string;
 
+  @property({
+    type: 'string',
+  })
+  expedientID?: string;
 
   constructor(data?: Partial<ExpedientType>) {
     super(data);

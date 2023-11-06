@@ -7,7 +7,7 @@ export class GlobalCoherence extends Entity {
     id: true,
     generated: true,
   })
-  id?: string;
+  globalCoherenceId?: string;
 
   @property({
     type: 'string',
@@ -45,6 +45,10 @@ export class GlobalCoherence extends Entity {
   })
   modifyAt?: string;
 
+  @property({
+    type: 'string',
+  })
+  expedientID?: string;
 
   constructor(data?: Partial<GlobalCoherence>) {
     super(data);

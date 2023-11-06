@@ -16,20 +16,20 @@ import {
   requestBody,
 } from '@loopback/rest';
 import {
-  DepartureReason,
+  Expedient,
   DepartureReason,
 } from '../models';
-import {DepartureReasonRepository} from '../repositories';
+import {ExpedientRepository} from '../repositories';
 
-export class DepartureReasonDepartureReasonController {
+export class ExpedientDepartureReasonController {
   constructor(
-    @repository(DepartureReasonRepository) protected departureReasonRepository: DepartureReasonRepository,
+    @repository(ExpedientRepository) protected expedientRepository: ExpedientRepository,
   ) { }
 
-  @get('/departure-reasons/{id}/departure-reasons', {
+  @get('/expedients/{id}/departure-reasons', {
     responses: {
       '200': {
-        description: 'Array of DepartureReason has many DepartureReason',
+        description: 'Array of Expedient has many DepartureReason',
         content: {
           'application/json': {
             schema: {type: 'array', items: getModelSchemaRef(DepartureReason)},
@@ -42,38 +42,38 @@ export class DepartureReasonDepartureReasonController {
     @param.path.string('id') id: string,
     @param.query.object('filter') filter?: Filter<DepartureReason>,
   ): Promise<DepartureReason[]> {
-    return this.departureReasonRepository.departureReasons(id).find(filter);
+    return this.expedientRepository.departureReasons(id).find(filter);
   }
 
-  @post('/departure-reasons/{id}/departure-reasons', {
+  @post('/expedients/{id}/departure-reasons', {
     responses: {
       '200': {
-        description: 'DepartureReason model instance',
+        description: 'Expedient model instance',
         content: {'application/json': {schema: getModelSchemaRef(DepartureReason)}},
       },
     },
   })
   async create(
-    @param.path.string('id') id: typeof DepartureReason.prototype.id,
+    @param.path.string('id') id: typeof Expedient.prototype.expedientID,
     @requestBody({
       content: {
         'application/json': {
           schema: getModelSchemaRef(DepartureReason, {
-            title: 'NewDepartureReasonInDepartureReason',
-            exclude: ['id'],
-            optional: ['id']
+            title: 'NewDepartureReasonInExpedient',
+            exclude: ['departureReasonId'],
+            optional: ['expedientID']
           }),
         },
       },
-    }) departureReason: Omit<DepartureReason, 'id'>,
+    }) departureReason: Omit<DepartureReason, 'departureReasonId'>,
   ): Promise<DepartureReason> {
-    return this.departureReasonRepository.departureReasons(id).create(departureReason);
+    return this.expedientRepository.departureReasons(id).create(departureReason);
   }
 
-  @patch('/departure-reasons/{id}/departure-reasons', {
+  @patch('/expedients/{id}/departure-reasons', {
     responses: {
       '200': {
-        description: 'DepartureReason.DepartureReason PATCH success count',
+        description: 'Expedient.DepartureReason PATCH success count',
         content: {'application/json': {schema: CountSchema}},
       },
     },
@@ -90,13 +90,13 @@ export class DepartureReasonDepartureReasonController {
     departureReason: Partial<DepartureReason>,
     @param.query.object('where', getWhereSchemaFor(DepartureReason)) where?: Where<DepartureReason>,
   ): Promise<Count> {
-    return this.departureReasonRepository.departureReasons(id).patch(departureReason, where);
+    return this.expedientRepository.departureReasons(id).patch(departureReason, where);
   }
 
-  @del('/departure-reasons/{id}/departure-reasons', {
+  @del('/expedients/{id}/departure-reasons', {
     responses: {
       '200': {
-        description: 'DepartureReason.DepartureReason DELETE success count',
+        description: 'Expedient.DepartureReason DELETE success count',
         content: {'application/json': {schema: CountSchema}},
       },
     },
@@ -105,6 +105,6 @@ export class DepartureReasonDepartureReasonController {
     @param.path.string('id') id: string,
     @param.query.object('where', getWhereSchemaFor(DepartureReason)) where?: Where<DepartureReason>,
   ): Promise<Count> {
-    return this.departureReasonRepository.departureReasons(id).delete(where);
+    return this.expedientRepository.departureReasons(id).delete(where);
   }
 }

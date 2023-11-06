@@ -1,5 +1,4 @@
-import {Entity, model, property, hasMany} from '@loopback/repository';
-import {DepartureReason} from './departure-reason.model';
+import {Entity, model, property} from '@loopback/repository';
 
 @model()
 export class DepartureReason extends Entity {
@@ -8,7 +7,7 @@ export class DepartureReason extends Entity {
     id: true,
     generated: true,
   })
-  id?: string;
+  departureReasonId?: string;
 
   @property({
     type: 'string',
@@ -46,8 +45,10 @@ export class DepartureReason extends Entity {
   })
   modifyAt?: string;
 
-  @hasMany(() => DepartureReason, {keyTo: 'id'})
-  departureReasons: DepartureReason[];
+  @property({
+    type: 'string',
+  })
+  expedientID?: string;
 
   constructor(data?: Partial<DepartureReason>) {
     super(data);

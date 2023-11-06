@@ -5,7 +5,7 @@ import {GlobalStatusManagement, GlobalStatusManagementRelations} from '../models
 
 export class GlobalStatusManagementRepository extends DefaultCrudRepository<
   GlobalStatusManagement,
-  typeof GlobalStatusManagement.prototype.id,
+  typeof GlobalStatusManagement.prototype.globalStatusManagementId,
   GlobalStatusManagementRelations
 > {
   constructor(

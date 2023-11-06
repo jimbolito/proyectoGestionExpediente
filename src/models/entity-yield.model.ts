@@ -7,7 +7,7 @@ export class EntityYield extends Entity {
     id: true,
     generated: true,
   })
-  id?: string;
+  entityYieldId?: string;
 
   @property({
     type: 'string',
@@ -45,6 +45,10 @@ export class EntityYield extends Entity {
   })
   modifyAt?: string;
 
+  @property({
+    type: 'string',
+  })
+  expedientID?: string;
 
   constructor(data?: Partial<EntityYield>) {
     super(data);

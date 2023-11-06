@@ -7,7 +7,7 @@ export class EntityOriginal extends Entity {
     id: true,
     generated: true,
   })
-  id?: string;
+  entitytOriginalId?: string;
 
   @property({
     type: 'string',
@@ -46,6 +46,10 @@ export class EntityOriginal extends Entity {
   })
   modifyAt?: string;
 
+  @property({
+    type: 'string',
+  })
+  expedientID?: string;
 
   constructor(data?: Partial<EntityOriginal>) {
     super(data);

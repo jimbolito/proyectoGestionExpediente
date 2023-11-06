@@ -7,7 +7,7 @@ export class GlobalStatusManagement extends Entity {
     id: true,
     generated: true,
   })
-  id?: string;
+  globalStatusManagementId?: string;
 
   @property({
     type: 'string',
@@ -45,6 +45,10 @@ export class GlobalStatusManagement extends Entity {
   })
   modifyAt?: string;
 
+  @property({
+    type: 'string',
+  })
+  expedientID?: string;
 
   constructor(data?: Partial<GlobalStatusManagement>) {
     super(data);

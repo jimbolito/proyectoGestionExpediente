@@ -45,6 +45,10 @@ export class MainIntervener extends Entity {
   })
   modifyAt?: string;
 
+  @property({
+    type: 'string',
+  })
+  expedientID?: string;
 
   constructor(data?: Partial<MainIntervener>) {
     super(data);
