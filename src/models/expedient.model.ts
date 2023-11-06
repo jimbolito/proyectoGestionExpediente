@@ -1,5 +1,4 @@
-import {Entity, model, property, hasMany} from '@loopback/repository';
-import {ActivationReason} from './activation-reason.model';
+import {Entity, model, property} from '@loopback/repository';
 
 @model()
 export class Expedient extends Entity {
@@ -213,9 +212,6 @@ export class Expedient extends Entity {
     required: true,
   })
   expostDate: string;
-
-  @hasMany(() => ActivationReason, {keyTo: 'expedientID'})
-  activationReasons: ActivationReason[];
 
   constructor(data?: Partial<Expedient>) {
     super(data);

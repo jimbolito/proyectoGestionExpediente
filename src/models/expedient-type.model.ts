@@ -1,13 +1,13 @@
 import {Entity, model, property} from '@loopback/repository';
 
 @model()
-export class ActivationReason extends Entity {
+export class ExpedientType extends Entity {
   @property({
     type: 'string',
     id: true,
     generated: true,
   })
-  activationReasonId?: string;
+  expedientTypeId?: string;
 
   @property({
     type: 'string',
@@ -45,13 +45,14 @@ export class ActivationReason extends Entity {
   })
   modify?: string;
 
-  constructor(data?: Partial<ActivationReason>) {
+
+  constructor(data?: Partial<ExpedientType>) {
     super(data);
   }
 }
 
-export interface ActivationReasonRelations {
+export interface ExpedientTypeRelations {
   // describe navigational properties here
 }
 
-export type ActivationReasonWithRelations = ActivationReason & ActivationReasonRelations;
+export type ExpedientTypeWithRelations = ExpedientType & ExpedientTypeRelations;

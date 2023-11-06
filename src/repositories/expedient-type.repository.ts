@@ -1,16 +1,16 @@
 import {inject} from '@loopback/core';
 import {DefaultCrudRepository} from '@loopback/repository';
 import {ExpedientDataSourceDataSource} from '../datasources';
-import {Expedient, ExpedientRelations} from '../models';
+import {ExpedientType, ExpedientTypeRelations} from '../models';
 
-export class ExpedientRepository extends DefaultCrudRepository<
-  Expedient,
-  typeof Expedient.prototype.expedientID,
-  ExpedientRelations
+export class ExpedientTypeRepository extends DefaultCrudRepository<
+  ExpedientType,
+  typeof ExpedientType.prototype.expedientTypeId,
+  ExpedientTypeRelations
 > {
   constructor(
     @inject('datasources.expedientDataSource') dataSource: ExpedientDataSourceDataSource,
   ) {
-    super(Expedient, dataSource);
+    super(ExpedientType, dataSource);
   }
 }

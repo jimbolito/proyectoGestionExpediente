@@ -4,6 +4,7 @@ export * from './customer-return-reason.model';
 export * from './departure-reason.model';
 export * from './entity-original.model';
 export * from './entity-yield.model';
+export * from './expedient-type.model';
 export * from './expedient.model';
 export * from './field-identifier.model';
 export * from './global-coherence.model';
