@@ -45,6 +45,11 @@ export class ActivationReason extends Entity {
   })
   modify?: string;
 
+  @property({
+    type: 'string',
+  })
+  expedientID?: string;
+
   constructor(data?: Partial<ActivationReason>) {
     super(data);
   }
