@@ -14,3 +14,4 @@ export * from './expedient-group.controller';
 export * from './group.controller';
 export * from './expedient-activation-reason.controller';
 export * from './activation-reason.controller';
+export * from './paralyzed-reason.controller';
