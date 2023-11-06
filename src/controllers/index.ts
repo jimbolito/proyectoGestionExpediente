@@ -7,3 +7,4 @@ export * from './expedient-client-status.controller';
 export * from './client-status.controller';
 export * from './expedient-customer-return-reason.controller';
 export * from './customer-return-reason.controller';
+export * from './departure-reason-departure-reason.controller';
