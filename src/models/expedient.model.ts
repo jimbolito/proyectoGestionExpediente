@@ -1,6 +1,7 @@
 import {Entity, model, property, hasMany} from '@loopback/repository';
 import {ActivationReason} from './activation-reason.model';
 import {ClientStatus} from './client-status.model';
+import {CustomerReturnReason} from './customer-return-reason.model';
 
 @model()
 export class Expedient extends Entity {
@@ -220,6 +221,9 @@ export class Expedient extends Entity {
 
   @hasMany(() => ClientStatus, {keyTo: 'expedientID'})
   clientStatuses: ClientStatus[];
+
+  @hasMany(() => CustomerReturnReason, {keyTo: 'expedientID'})
+  customerReturnReasons: CustomerReturnReason[];
 
   constructor(data?: Partial<Expedient>) {
     super(data);

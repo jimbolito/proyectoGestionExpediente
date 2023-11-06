@@ -45,6 +45,10 @@ export class CustomerReturnReason extends Entity {
   })
   modifyAt?: string;
 
+  @property({
+    type: 'string',
+  })
+  expedientID?: string;
 
   constructor(data?: Partial<CustomerReturnReason>) {
     super(data);
