@@ -1,15 +1,9 @@
 import {Entity, belongsTo, hasMany, hasOne, model, property} from '@loopback/repository';
+import {ActivationReason} from './activation-reason.model';
 import {ClientStatus} from './client-status.model';
-import {Enrollment} from './enrollment.model';
-import {ExpedientFieldIdentifier} from './expedient-field-identifier.model';
-import {ExpedientManinIntervener} from './expedient-manin-intervener.model';
-import {ExpedientType} from './expedient-type.model';
-import {FieldIdentifier} from './field-identifier.model';
-import {MainIntervener} from './main-intervener.model';
+import {Group} from './group.model';
 import {ManagementStatus} from './management-status.model';
 import {ParalyzedReason} from './paralyzed-reason.model';
-import {Group} from './group.model';
-import {ActivationReason} from './activation-reason.model';
 
 @model()
 export class Expedient extends Entity {
@@ -224,14 +218,14 @@ export class Expedient extends Entity {
   })
   expostDate: string;
 
-  @hasMany(() => ExpedientType, {through: {model: () => Enrollment, keyFrom: 'expedientID', keyTo: 'typeID'}})
-  enrollmentID: ExpedientType[];
+  // @hasMany(() => ExpedientType, {through: {model: () => Enrollment, keyFrom: 'expedientID', keyTo: 'typeID'}})
+  // enrollmentID: ExpedientType[];
 
   @belongsTo(() => ClientStatus)
   clientStatusId: string;
 
-  @hasMany(() => MainIntervener, {through: {model: () => ExpedientManinIntervener, keyFrom: 'expedientID'}})
-  mainInterveners: MainIntervener[];
+  // @hasMany(() => MainIntervener, {through: {model: () => ExpedientManinIntervener, keyFrom: 'expedientID'}})
+  // mainInterveners: MainIntervener[];
 
   @hasOne(() => ManagementStatus, {keyTo: 'expedientID'})
   managementStatusId: ManagementStatus;
@@ -239,8 +233,8 @@ export class Expedient extends Entity {
   @hasMany(() => ParalyzedReason, {keyTo: 'expedientID'})
   paralyzedReasonId: ParalyzedReason[];
 
-  @hasMany(() => FieldIdentifier, {through: {model: () => ExpedientFieldIdentifier, keyFrom: 'expedientID', keyTo: 'fielId'}})
-  fieldIdentifiers: FieldIdentifier[];
+  // @hasMany(() => FieldIdentifier, {through: {model: () => ExpedientFieldIdentifier, keyFrom: 'expedientID', keyTo: 'fielId'}})
+  // fieldIdentifiers: FieldIdentifier[];
 
   @hasMany(() => Group, {keyTo: 'expedientID'})
   groups: Group[];
