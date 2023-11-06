@@ -40,6 +40,10 @@ export class ClientStatus extends Entity {
   })
   modifyAt?: string;
 
+  @property({
+    type: 'string',
+  })
+  expedientID?: string;
 
   constructor(data?: Partial<ClientStatus>) {
     super(data);
