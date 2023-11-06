@@ -1,9 +1,5 @@
-import {Entity, belongsTo, hasMany, hasOne, model, property} from '@loopback/repository';
+import {Entity, model, property, hasMany} from '@loopback/repository';
 import {ActivationReason} from './activation-reason.model';
-import {ClientStatus} from './client-status.model';
-import {Group} from './group.model';
-import {ManagementStatus} from './management-status.model';
-import {ParalyzedReason} from './paralyzed-reason.model';
 
 @model()
 export class Expedient extends Entity {
@@ -217,27 +213,6 @@ export class Expedient extends Entity {
     required: true,
   })
   expostDate: string;
-
-  // @hasMany(() => ExpedientType, {through: {model: () => Enrollment, keyFrom: 'expedientID', keyTo: 'typeID'}})
-  // enrollmentID: ExpedientType[];
-
-  @belongsTo(() => ClientStatus)
-  clientStatusId: string;
-
-  // @hasMany(() => MainIntervener, {through: {model: () => ExpedientManinIntervener, keyFrom: 'expedientID'}})
-  // mainInterveners: MainIntervener[];
-
-  @hasOne(() => ManagementStatus, {keyTo: 'expedientID'})
-  managementStatusId: ManagementStatus;
-
-  @hasMany(() => ParalyzedReason, {keyTo: 'expedientID'})
-  paralyzedReasonId: ParalyzedReason[];
-
-  // @hasMany(() => FieldIdentifier, {through: {model: () => ExpedientFieldIdentifier, keyFrom: 'expedientID', keyTo: 'fielId'}})
-  // fieldIdentifiers: FieldIdentifier[];
-
-  @hasMany(() => Group, {keyTo: 'expedientID'})
-  groups: Group[];
 
   @hasMany(() => ActivationReason, {keyTo: 'expedientID'})
   activationReasons: ActivationReason[];
