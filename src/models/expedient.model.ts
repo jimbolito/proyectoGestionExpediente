@@ -9,6 +9,7 @@ import {MainIntervener} from './main-intervener.model';
 import {ManagementStatus} from './management-status.model';
 import {ParalyzedReason} from './paralyzed-reason.model';
 import {Group} from './group.model';
+import {ActivationReason} from './activation-reason.model';
 
 @model()
 export class Expedient extends Entity {
@@ -243,6 +244,9 @@ export class Expedient extends Entity {
 
   @hasMany(() => Group, {keyTo: 'expedientID'})
   groups: Group[];
+
+  @hasMany(() => ActivationReason, {keyTo: 'expedientID'})
+  activationReasons: ActivationReason[];
 
   constructor(data?: Partial<Expedient>) {
     super(data);

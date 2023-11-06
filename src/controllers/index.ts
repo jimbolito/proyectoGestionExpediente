@@ -12,3 +12,4 @@ export * from './expedient-field-identifier.controller';
 export * from './field-identifier.controller';
 export * from './expedient-group.controller';
 export * from './group.controller';
+export * from './expedient-activation-reason.controller';

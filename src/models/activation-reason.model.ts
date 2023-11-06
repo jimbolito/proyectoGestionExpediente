@@ -7,7 +7,7 @@ export class ActivationReason extends Entity {
     id: true,
     generated: true,
   })
-  id?: string;
+  activationReasonId?: string;
 
   @property({
     type: 'string',
@@ -45,6 +45,10 @@ export class ActivationReason extends Entity {
   })
   modify?: string;
 
+  @property({
+    type: 'string',
+  })
+  expedientID?: string;
 
   constructor(data?: Partial<ActivationReason>) {
     super(data);
